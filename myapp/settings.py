@@ -86,10 +86,23 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
+    'sqlite': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    , 'default': {
+         'ENGINE': 'django.db.backends.mysql',
+         'NAME': 'apidb',
+         'USER' : 'apiuser',
+         'PASSWORD' : 'api#1123',
+         'HOST' : 'svc.gksl2.cloudtype.app',
+         'PORT' : 32106,
+         'OPTIONS' : { 
+             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'isolation_level': "repeatable read",
+    
+         }   
+     },  
 }
 
 
