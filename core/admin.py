@@ -14,6 +14,7 @@ admin.site.index_title = "Welcome to B4PLAY TEAM-DATA"
 
 class TwPatchNoteAdmin(admin.ModelAdmin):
     list_display = ('version', 'note')
+    list_per_page = 15
 
 class TwCafeAdmin(admin.ModelAdmin):
     list_display = (
@@ -30,6 +31,10 @@ class TwCafeAdmin(admin.ModelAdmin):
     #    , 'latitude' 
     #    , 'longitude'
     )
+    search_fields = ( 'cafe_name', 'location')
+    list_filter = ( 'location', 'cafe_size', 'tables')
+    list_per_page = 20
+
 # 
 # class ScodeTypeAdmin(admin.ModelAdmin):
 # #    list_display = ('id','code_type', 'code', 'pcode', 'name_en', 'name_ko')
